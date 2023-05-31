@@ -7,4 +7,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Fonts\Inter.ttf" />
+    <None Remove="Images\Icons\search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Inter.ttf" />
+    <Resource Include="Images\Icons\search.png" />
+  </ItemGroup>
+
 </Project>
