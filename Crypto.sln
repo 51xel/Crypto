@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto.WPF", "Crypto.WPF\Crypto.WPF.csproj", "{7D6545C8-FED9-4B34-B98E-5B737A1657BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D6545C8-FED9-4B34-B98E-5B737A1657BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6545C8-FED9-4B34-B98E-5B737A1657BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6545C8-FED9-4B34-B98E-5B737A1657BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6545C8-FED9-4B34-B98E-5B737A1657BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68A5443F-0A89-4540-8931-A4922BEFCDF8}
+	EndGlobalSection
+EndGlobal
