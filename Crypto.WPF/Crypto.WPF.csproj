@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Fonts\Inter.ttf" />
     <Resource Include="Images\Icons\search.png" />
   </ItemGroup>

@@ -18,22 +18,8 @@ namespace Crypto.WPF.Views {
     /// Interaction logic for TopCryptoView.xaml
     /// </summary>
     public partial class TopCryptoView : UserControl {
-        private class Pl {
-            public string Name { get; set; }
-            public int Price { get; set; }
-        }
         public TopCryptoView() {
             InitializeComponent();
-
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
-            test.List.Items.Add(new Pl {Name = "Bitcoin", Price = 2165465 });
         }
     }
 }

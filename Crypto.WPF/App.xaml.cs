@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crypto.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -9,7 +10,9 @@ using System.Windows;
 namespace Crypto.WPF {
     public partial class App : Application {
         protected override void OnStartup(StartupEventArgs e) {
-            MainWindow = new MainWindow();
+            MainWindow = new MainWindow() {
+                DataContext = new TopCryptoViewModel()
+            };
             MainWindow.Show();
 
             base.OnStartup(e);
