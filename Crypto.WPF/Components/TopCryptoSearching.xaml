@@ -85,7 +85,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Column="0" Style="{StaticResource SearchTextBoxStyle}"/>
-        <Button Grid.Column="1" Style="{StaticResource SearchButtonStyle}"/>
+        <TextBox Grid.Column="0" Style="{StaticResource SearchTextBoxStyle}" DataContext="{Binding TopCryptoSearchingTextBoxViewModel}" Text="{Binding Name}"/>
+        <Button Grid.Column="1" Style="{StaticResource SearchButtonStyle}" DataContext="{Binding TopCryptoSearchingButtonViewModel}" Command="{Binding SearchCommand}"/>
     </Grid>
 </UserControl>

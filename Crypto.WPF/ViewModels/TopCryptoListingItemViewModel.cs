@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CryptoLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ using System.Windows.Input;
 namespace Crypto.WPF.ViewModels{
     public class TopCryptoListingItemViewModel : ViewModelBase{
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public decimal PriceUsd { get; set; }
 
         ICommand ClickCryptoCommand { get; }
 
-        public TopCryptoListingItemViewModel(string name, decimal price) {
-            Name = name;
-            Price = price;
+        public TopCryptoListingItemViewModel(Coin coin) {
+            Name = coin.Name;
+            PriceUsd = coin.PriceUsd;
         }
     }
 }

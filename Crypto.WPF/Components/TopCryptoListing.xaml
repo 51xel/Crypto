@@ -26,12 +26,41 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <ListView ItemContainerStyle="{StaticResource ListBoxItemStyle}" ItemsSource="{Binding TopCryptoListingItemViewModels}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <local:TopCryptoListingItem/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Grid>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding HasTopCryptoListingItemViewModels}" Value="False">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <TextBlock Text="Empty" Foreground="White" FontSize="20" Opacity="0.5" HorizontalAlignment="Center"/>
+        </Grid>
+        
+        <Grid>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding HasTopCryptoListingItemViewModels}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            
+            <ListView ItemContainerStyle="{StaticResource ListBoxItemStyle}" ItemsSource="{Binding TopCryptoListingItemViewModels}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:TopCryptoListingItem/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </UserControl>
