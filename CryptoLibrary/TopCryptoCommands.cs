@@ -36,7 +36,18 @@ namespace CryptoLibrary {
                 return coinResponse.Data;
             }
             catch (Exception ex) {
-                return null;
+                try {
+                    var list = GetTopCrypto(100);
+                    var result = list.FirstOrDefault(e => 
+                                                        e.Id == coinName || 
+                                                        e.Name == coinName || 
+                                                        e.Symbol == coinName || 
+                                                        e.Symbol == coinName.ToUpper());
+                    return result;
+                }
+                catch (Exception) {
+                    return null;
+                }
             }
         }
 

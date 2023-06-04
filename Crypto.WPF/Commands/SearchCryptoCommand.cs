@@ -15,6 +15,7 @@ namespace Crypto.WPF.Commands {
             _searchedCoin = searchedCoin;
             _displayedCoinsStore = displayedCoinsStore;
         }
+
         public override void Execute(object parameter) {
             if (!String.IsNullOrWhiteSpace(_searchedCoin.Name)) {
                 var coin = TopCryptoCommands.GetSearchedCrypto(_searchedCoin.Name);

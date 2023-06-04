@@ -12,6 +12,7 @@ namespace Crypto.WPF.ViewModels {
     public class DetailsViewModel : ViewModelBase {
         public DetailsListingViewModel DetailsListingViewModel { get; }
         public DetailsInfoViewModel DetailsInfoViewModel { get; }
+
         public ICommand HomeCommand { get; }
 
         private Coin _coin;
@@ -24,7 +25,7 @@ namespace Crypto.WPF.ViewModels {
         public DetailsViewModel(Coin coin, ModalNavigationStore modalNavigationStore) {
             _coin = coin;
 
-            DetailsListingViewModel = new DetailsListingViewModel(TopCryptoCommands.GetMarkets(_coin.Name.ToLower()));
+            DetailsListingViewModel = new DetailsListingViewModel(TopCryptoCommands.GetMarkets(_coin.Id));
             DetailsInfoViewModel = new DetailsInfoViewModel(_coin);
 
             HomeCommand = new HomeCommand(modalNavigationStore);

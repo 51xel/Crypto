@@ -9,16 +9,10 @@ using System.Windows.Input;
 
 namespace Crypto.WPF.ViewModels {
     public class TopCryptoSearchingButtonViewModel : ViewModelBase {
-        private SearchedCoinStore _searchedCoin { get; }
-        private DisplayedCoinsStore _displayedCoinsStore { get; }
-
         public ICommand SearchCommand { get; }
 
         public TopCryptoSearchingButtonViewModel(SearchedCoinStore searchedCoin, DisplayedCoinsStore displayedCoinsStore){
-            _searchedCoin = searchedCoin;
-            _displayedCoinsStore = displayedCoinsStore;
-
-            SearchCommand = new SearchCryptoCommand(_searchedCoin, _displayedCoinsStore);
+            SearchCommand = new SearchCryptoCommand(searchedCoin, displayedCoinsStore);
         }
     }
 }

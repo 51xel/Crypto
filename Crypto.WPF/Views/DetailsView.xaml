@@ -53,7 +53,7 @@
                 </Style>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -65,7 +65,7 @@
         <Components:DetailsInfo Grid.Row="1" Grid.Column="1" DataContext="{Binding DetailsInfoViewModel}"/>
         <Border Background="#D9D9D9" Grid.Row="1" Grid.Column="1" Opacity="0.47" VerticalAlignment="Bottom" Height="3" CornerRadius="2"/>
 
-        <Components:TopCryptoListing Grid.Row="2" Grid.Column="1" DataContext="{Binding DetailsListingViewModel}"/>
+        <Components:TopCryptoListing Grid.Row="2" Grid.Column="1" DataContext="{Binding DetailsListingViewModel}" Margin="0, 5, 0, 10"/>
         <Border Background="#D9D9D9" Grid.Row="2" Grid.Column="1" Opacity="0.47" VerticalAlignment="Bottom" Height="3" CornerRadius="2"/>
     </Grid>
 </UserControl>

@@ -12,9 +12,10 @@ namespace Crypto.WPF.ViewModels{
         private readonly ObservableCollection<TopCryptoListingItemViewModel> _listingItemViewModels;
         public IEnumerable<TopCryptoListingItemViewModel> ListingItemViewModels { get { return _listingItemViewModels; } }
         public bool HasListingItemViewModels { get { return _listingItemViewModels.Count != 0; } }
-        private DisplayedCoinsStore _displayedCoinsStore { get; }
 
+        private DisplayedCoinsStore _displayedCoinsStore { get; }
         private ModalNavigationStore _modalNavigationStore;
+
         private TopCryptoListingItemViewModel _topCryptoListingItemViewModel;
         public TopCryptoListingItemViewModel SelectedTopCryptoListingItem {
             get {
@@ -61,6 +62,8 @@ namespace Crypto.WPF.ViewModels{
 
         protected override void Dispose() {
             _displayedCoinsStore.DisplayedCoinsStoreChanged -= DisplayedCoinsStoreChanged;
+
+            base.Dispose();
         }
     }
 }

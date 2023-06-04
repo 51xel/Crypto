@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CryptoLibrary {
     public class Coin {
         public string Id { get; set; }
+        public string Symbol { get; set; }
         public string Name { get; set; }
         public decimal PriceUsd { get; set; }
         public decimal VolumeUsd24Hr { get; set; }

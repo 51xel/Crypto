@@ -17,7 +17,6 @@ namespace Crypto.WPF.ViewModels {
             set {
                 _name = value;
                 _searchedCoin.Name = value;
-                OnPropertyChanged(nameof(_name));
             }
         }
 
