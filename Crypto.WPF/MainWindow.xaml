@@ -5,11 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crypto.WPF"
         xmlns:Views="clr-namespace:Crypto.WPF.Views"
+        xmlns:ViewModel="clr-namespace:Crypto.WPF.ViewModels"
         mc:Ignorable="d"
         Title="Crypto" Height="600" Width="800"
         MinWidth="500"
         MinHeight="200">
-    <Grid>
-        <Views:TopCryptoView/>
-    </Grid>
+    <ContentControl Content="{Binding CurrentViewModel}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type ViewModel:TopCryptoViewModel}">
+                <Views:TopCryptoView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModel:DetailsViewModel}">
+                <Views:DetailsView/>
+            </DataTemplate>
+        </ContentControl.Resources>
+    </ContentControl>
 </Window>

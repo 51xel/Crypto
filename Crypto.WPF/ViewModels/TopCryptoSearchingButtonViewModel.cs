@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Crypto.WPF.ViewModels {
-    public class TopCryptoSearchingButtonViewModel {
+    public class TopCryptoSearchingButtonViewModel : ViewModelBase {
         private SearchedCoinStore _searchedCoin { get; }
         private DisplayedCoinsStore _displayedCoinsStore { get; }
 

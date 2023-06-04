@@ -11,11 +11,21 @@ namespace Crypto.WPF.ViewModels{
         public string Name { get; set; }
         public decimal PriceUsd { get; set; }
 
-        ICommand ClickCryptoCommand { get; }
+        public Coin Coin { get; set; }
+        public Market Market { get; set; }
 
         public TopCryptoListingItemViewModel(Coin coin) {
             Name = coin.Name;
             PriceUsd = coin.PriceUsd;
+
+            Coin = coin;
+        }
+
+        public TopCryptoListingItemViewModel(Market market) {
+            Name = market.ExchangeId;
+            PriceUsd = market.PriceUsd;
+
+            Market = market;
         }
     }
 }

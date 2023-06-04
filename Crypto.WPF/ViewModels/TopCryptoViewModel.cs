@@ -12,10 +12,10 @@ namespace Crypto.WPF.ViewModels{
         public TopCryptoListingViewModel TopCryptoListingViewModel { get; }
         public TopCryptoSearchingViewModel TopCryptoSearchingViewModel { get; }
 
-        public TopCryptoViewModel(){
+        public TopCryptoViewModel(ModalNavigationStore modalNavigationStore) {
             DisplayedCoinsStore = new DisplayedCoinsStore();
 
-            TopCryptoListingViewModel = new TopCryptoListingViewModel(DisplayedCoinsStore);
+            TopCryptoListingViewModel = new TopCryptoListingViewModel(DisplayedCoinsStore, modalNavigationStore);
             TopCryptoSearchingViewModel = new TopCryptoSearchingViewModel(DisplayedCoinsStore);
         }
     }

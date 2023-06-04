@@ -10,6 +10,7 @@
         <Style TargetType="ListView">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
         </Style>
 
         <Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
@@ -32,7 +33,7 @@
                     <Setter Property="Visibility" Value="Collapsed"/>
 
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding HasTopCryptoListingItemViewModels}" Value="False">
+                        <DataTrigger Binding="{Binding HasListingItemViewModels}" Value="False">
                             <Setter Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -47,14 +48,17 @@
                     <Setter Property="Visibility" Value="Collapsed"/>
 
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding HasTopCryptoListingItemViewModels}" Value="True">
+                        <DataTrigger Binding="{Binding HasListingItemViewModels}" Value="True">
                             <Setter Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
             
-            <ListView ItemContainerStyle="{StaticResource ListBoxItemStyle}" ItemsSource="{Binding TopCryptoListingItemViewModels}">
+            <ListView 
+                SelectedItem="{Binding SelectedTopCryptoListingItem}"
+                ItemContainerStyle="{StaticResource ListBoxItemStyle}" 
+                ItemsSource="{Binding ListingItemViewModels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <local:TopCryptoListingItem/>

@@ -1,12 +1,16 @@
 ﻿using Newtonsoft.Json;
 
 namespace CryptoLibrary {
-    internal class CoinResponse {
+    internal class CoinResponseList {
         public List<Coin> Data { get; set; }
     }
 
-    internal class CoinResponseTest {
+    internal class CoinResponse {
         public Coin Data { get; set; }
+    }
+
+    internal class MarketResponseList {
+        public List<Market> Data { get; set; }
     }
 
     public class TopCryptoCommands {
@@ -14,19 +18,33 @@ namespace CryptoLibrary {
             try {
                 var response = QueryEngine.MakeQuery($"assets?limit={amount}").Result;
 
-                var coinResponse = JsonConvert.DeserializeObject<CoinResponse>(response);
+                var coinResponse = JsonConvert.DeserializeObject<CoinResponseList>(response);
 
                 return coinResponse.Data;
-            }catch(Exception ex) {
+            }
+            catch(Exception ex) {
                 return null;
             }
         }
 
-        public static Coin GetSearchedCrypto(string name) {
+        public static Coin GetSearchedCrypto(string coinName) {
             try {
-                var response = QueryEngine.MakeQuery($"assets/{name}").Result;
+                var response = QueryEngine.MakeQuery($"assets/{coinName}").Result;
 
-                var coinResponse = JsonConvert.DeserializeObject<CoinResponseTest>(response);
+                var coinResponse = JsonConvert.DeserializeObject<CoinResponse>(response);
+
+                return coinResponse.Data;
+            }
+            catch (Exception ex) {
+                return null;
+            }
+        }
+
+        public static List<Market> GetMarkets(string coinName) {
+            try {
+                var response = QueryEngine.MakeQuery($"assets/{coinName}/markets").Result;
+
+                var coinResponse = JsonConvert.DeserializeObject<MarketResponseList>(response);
 
                 return coinResponse.Data;
             }
