@@ -11,17 +11,17 @@ using System.Windows;
 
 namespace Crypto.WPF {
     public partial class App : Application {
-        private readonly ModalNavigationStore _modalNavigationStore;
+        private readonly NavigationStore _navigationStore;
 
         public App() {
-            _modalNavigationStore = new ModalNavigationStore();
+            _navigationStore = new NavigationStore();
         }
 
         protected override void OnStartup(StartupEventArgs e) {
-            _modalNavigationStore.CurrentViewModel = new TopCryptoViewModel(_modalNavigationStore);
+            _navigationStore.CurrentViewModel = new TopCryptoViewModel(_navigationStore);
 
             MainWindow = new MainWindow() {
-                DataContext = new MainViewModel(_modalNavigationStore)
+                DataContext = new MainViewModel(_navigationStore)
             };
 
             MainWindow.Show();

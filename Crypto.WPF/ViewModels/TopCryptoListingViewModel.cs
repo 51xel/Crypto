@@ -14,7 +14,7 @@ namespace Crypto.WPF.ViewModels{
         public bool HasListingItemViewModels { get { return _listingItemViewModels.Count != 0; } }
 
         private DisplayedCoinsStore _displayedCoinsStore { get; }
-        private ModalNavigationStore _modalNavigationStore;
+        private NavigationStore _navigationStore;
 
         private TopCryptoListingItemViewModel _topCryptoListingItemViewModel;
         public TopCryptoListingItemViewModel SelectedTopCryptoListingItem {
@@ -24,17 +24,17 @@ namespace Crypto.WPF.ViewModels{
             set {
                _topCryptoListingItemViewModel = value;
 
-                _modalNavigationStore.CurrentViewModel = new DetailsViewModel(_topCryptoListingItemViewModel.Coin, _modalNavigationStore);
+                _navigationStore.CurrentViewModel = new DetailsViewModel(_topCryptoListingItemViewModel.Coin, _navigationStore);
             }
         }
 
-        public TopCryptoListingViewModel(DisplayedCoinsStore displayedCoinsStore, ModalNavigationStore modalNavigationStore) {
+        public TopCryptoListingViewModel(DisplayedCoinsStore displayedCoinsStore, NavigationStore navigationStore) {
             _listingItemViewModels = new ObservableCollection<TopCryptoListingItemViewModel>();
 
             _displayedCoinsStore = displayedCoinsStore;
             _displayedCoinsStore.DisplayedCoinsStoreChanged += DisplayedCoinsStoreChanged;
 
-            _modalNavigationStore = modalNavigationStore;
+            _navigationStore = navigationStore;
 
             UpdateListing(TopCryptoCommands.GetTopCrypto());
         }
@@ -58,6 +58,11 @@ namespace Crypto.WPF.ViewModels{
 
                 OnPropertyChanged(nameof(HasListingItemViewModels));
             }
+        }
+
+        public async void UpdateListing(Task<List<Coin>> list) {
+            var result = await list;
+            UpdateListing(result);
         }
 
         protected override void Dispose() {

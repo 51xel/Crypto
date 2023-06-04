@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Crypto.WPF.Commands {
     public class HomeCommand : CommandBase {
-        private ModalNavigationStore _modalNavigationStore;
+        private NavigationStore _navigationStore;
 
-        public HomeCommand(ModalNavigationStore modalNavigationStore){
-            _modalNavigationStore = modalNavigationStore;
+        public HomeCommand(NavigationStore navigationStore){
+            _navigationStore = navigationStore;
         }
 
         public override void Execute(object parameter) {
-            _modalNavigationStore.CurrentViewModel = new TopCryptoViewModel(_modalNavigationStore);
+            _navigationStore.CurrentViewModel = new TopCryptoViewModel(_navigationStore);
         }
     }
 }

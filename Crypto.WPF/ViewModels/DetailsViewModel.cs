@@ -22,13 +22,15 @@ namespace Crypto.WPF.ViewModels {
             }
         }
 
-        public DetailsViewModel(Coin coin, ModalNavigationStore modalNavigationStore) {
+        public DetailsViewModel(Coin coin, NavigationStore navigationStore) {
             _coin = coin;
 
-            DetailsListingViewModel = new DetailsListingViewModel(TopCryptoCommands.GetMarkets(_coin.Id));
+            var markets = TopCryptoCommands.GetMarkets(_coin.Id);
+
+            DetailsListingViewModel = new DetailsListingViewModel(markets);
             DetailsInfoViewModel = new DetailsInfoViewModel(_coin);
 
-            HomeCommand = new HomeCommand(modalNavigationStore);
+            HomeCommand = new HomeCommand(navigationStore);
         }
     }
 }

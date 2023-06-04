@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Crypto.WPF.Stores {
-    public class ModalNavigationStore {
+    public class NavigationStore {
         private ViewModelBase _currentViewModel;
         public ViewModelBase CurrentViewModel {
             get {

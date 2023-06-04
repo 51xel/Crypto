@@ -14,9 +14,9 @@ namespace CryptoLibrary {
     }
 
     public class TopCryptoCommands {
-        public static List<Coin> GetTopCrypto(int amount = 10) {
+        public static async Task<List<Coin>> GetTopCrypto(int amount = 10) {
             try {
-                var response = QueryEngine.MakeQuery($"assets?limit={amount}").Result;
+                var response = await QueryEngine.MakeQuery($"assets?limit={amount}");
 
                 var coinResponse = JsonConvert.DeserializeObject<CoinResponseList>(response);
 
@@ -27,9 +27,9 @@ namespace CryptoLibrary {
             }
         }
 
-        public static Coin GetSearchedCrypto(string coinName) {
+        public static async Task<Coin> GetSearchedCrypto(string coinName) {
             try {
-                var response = QueryEngine.MakeQuery($"assets/{coinName}").Result;
+                var response = await QueryEngine.MakeQuery($"assets/{coinName}");
 
                 var coinResponse = JsonConvert.DeserializeObject<CoinResponse>(response);
 
@@ -37,7 +37,7 @@ namespace CryptoLibrary {
             }
             catch (Exception ex) {
                 try {
-                    var list = GetTopCrypto(100);
+                    var list = await GetTopCrypto(100);
                     var result = list.FirstOrDefault(e => 
                                                         e.Id == coinName || 
                                                         e.Name == coinName || 
@@ -51,9 +51,9 @@ namespace CryptoLibrary {
             }
         }
 
-        public static List<Market> GetMarkets(string coinName) {
+        public static async Task<List<Market>> GetMarkets(string coinName) {
             try {
-                var response = QueryEngine.MakeQuery($"assets/{coinName}/markets").Result;
+                var response = await QueryEngine.MakeQuery($"assets/{coinName}/markets");
 
                 var coinResponse = JsonConvert.DeserializeObject<MarketResponseList>(response);
 

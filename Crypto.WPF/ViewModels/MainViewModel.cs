@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Crypto.WPF.ViewModels {
     public class MainViewModel : ViewModelBase{
-        private readonly ModalNavigationStore _modalNavigationStore;
-        public ViewModelBase CurrentViewModel => _modalNavigationStore.CurrentViewModel;
+        private readonly NavigationStore _navigationStore;
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        public MainViewModel(ModalNavigationStore modalNavigationStore) {
-            _modalNavigationStore = modalNavigationStore;
+        public MainViewModel(NavigationStore navigationStore) {
+            _navigationStore = navigationStore;
 
-            _modalNavigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
         private void OnCurrentViewModelChanged() {
@@ -21,8 +21,8 @@ namespace Crypto.WPF.ViewModels {
         }
 
         protected override void Dispose() {
-            _modalNavigationStore.CurrentViewModelChanged -= OnCurrentViewModelChanged;
-
+            _navigationStore.CurrentViewModelChanged -= OnCurrentViewModelChanged;
+                
             base.Dispose();
         }
     }

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Crypto.WPF.Commands {
-    public class SearchCryptoCommand : CommandBase {
+    public class SearchCryptoCommand : AsyncCommandBase {
         private SearchedCoinStore _searchedCoin { get; }
         private DisplayedCoinsStore _displayedCoinsStore { get; }
 
@@ -16,9 +16,9 @@ namespace Crypto.WPF.Commands {
             _displayedCoinsStore = displayedCoinsStore;
         }
 
-        public override void Execute(object parameter) {
+        public override async Task ExecuteAsync(object parameter) {
             if (!String.IsNullOrWhiteSpace(_searchedCoin.Name)) {
-                var coin = TopCryptoCommands.GetSearchedCrypto(_searchedCoin.Name);
+                var coin = await TopCryptoCommands.GetSearchedCrypto(_searchedCoin.Name);
 
                 _displayedCoinsStore.Coins.Clear();
 
@@ -29,7 +29,7 @@ namespace Crypto.WPF.Commands {
                 _displayedCoinsStore.Update();
             }
             else {
-                _displayedCoinsStore.Coins = TopCryptoCommands.GetTopCrypto();
+                _displayedCoinsStore.Coins = await TopCryptoCommands.GetTopCrypto();
                 _displayedCoinsStore.Update();
             }
         }

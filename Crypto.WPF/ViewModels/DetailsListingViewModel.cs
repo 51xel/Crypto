@@ -13,7 +13,7 @@ namespace Crypto.WPF.ViewModels{
         public IEnumerable<TopCryptoListingItemViewModel> ListingItemViewModels { get { return _listingItemViewModels; } }
         public bool HasListingItemViewModels { get { return _listingItemViewModels.Count != 0; } }
 
-        public DetailsListingViewModel(List<Market> markets) {
+        public DetailsListingViewModel(Task<List<Market>> markets) {
             _listingItemViewModels = new ObservableCollection<TopCryptoListingItemViewModel>();
 
             UpdateListing(markets);
@@ -30,6 +30,11 @@ namespace Crypto.WPF.ViewModels{
 
                 OnPropertyChanged(nameof(HasListingItemViewModels));
             }
+        }
+
+        public async void UpdateListing(Task<List<Market>> list) {
+            var result = await list;
+            UpdateListing(result);
         }
     }
 }
