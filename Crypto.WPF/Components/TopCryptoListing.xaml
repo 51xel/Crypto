@@ -56,7 +56,7 @@
             </Grid.Style>
             
             <ListView 
-                SelectedItem="{Binding SelectedTopCryptoListingItem}"
+                SelectedItem="{Binding SelectedListingItem}"
                 ItemContainerStyle="{StaticResource ListBoxItemStyle}" 
                 ItemsSource="{Binding ListingItemViewModels}">
                 <ListView.ItemTemplate>

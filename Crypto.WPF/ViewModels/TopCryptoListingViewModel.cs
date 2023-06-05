@@ -17,7 +17,7 @@ namespace Crypto.WPF.ViewModels{
         private NavigationStore _navigationStore;
 
         private TopCryptoListingItemViewModel _topCryptoListingItemViewModel;
-        public TopCryptoListingItemViewModel SelectedTopCryptoListingItem {
+        public TopCryptoListingItemViewModel SelectedListingItem {
             get {
                 return _topCryptoListingItemViewModel;
             }

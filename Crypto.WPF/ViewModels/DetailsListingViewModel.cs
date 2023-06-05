@@ -3,7 +3,9 @@ using CryptoLibrary;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +14,26 @@ namespace Crypto.WPF.ViewModels{
         private readonly ObservableCollection<TopCryptoListingItemViewModel> _listingItemViewModels;
         public IEnumerable<TopCryptoListingItemViewModel> ListingItemViewModels { get { return _listingItemViewModels; } }
         public bool HasListingItemViewModels { get { return _listingItemViewModels.Count != 0; } }
+
+        private TopCryptoListingItemViewModel _listingItemViewModel;
+        public TopCryptoListingItemViewModel SelectedListingItem {
+            get {
+                return _listingItemViewModel;
+            }
+            set {
+                _listingItemViewModel = value;
+
+                try {
+                    Process.Start(new ProcessStartInfo {
+                        FileName = "cmd",
+                        Arguments = $"/c start https://coincap.io/exchanges/{_listingItemViewModel.Market.ExchangeId.ToLower()}",
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    });
+                }
+                catch (Exception ex) { }
+            }
+        }
 
         public DetailsListingViewModel(Task<List<Market>> markets) {
             _listingItemViewModels = new ObservableCollection<TopCryptoListingItemViewModel>();
