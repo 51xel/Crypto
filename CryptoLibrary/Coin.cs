@@ -12,5 +12,6 @@ namespace CryptoLibrary {
         public decimal PriceUsd { get; set; }
         public decimal VolumeUsd24Hr { get; set; }
         public decimal ChangePercent24Hr { get; set; }
+        public long Time { get; set; }
     }
 }

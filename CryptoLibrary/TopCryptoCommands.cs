@@ -63,5 +63,18 @@ namespace CryptoLibrary {
                 return null;
             }
         }
+
+        public static async Task<List<Coin>> GetHistory(string coinName) {
+            try {
+                var response = await QueryEngine.MakeQuery($"assets/{coinName}/history?interval=h2&start={DateTimeOffset.UtcNow.AddMonths(-1).ToUnixTimeMilliseconds()}&end={DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}");
+
+                var coinResponse = JsonConvert.DeserializeObject<CoinResponseList>(response);
+
+                return coinResponse.Data;
+            }
+            catch (Exception ex) {
+                return null;
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace Crypto.WPF.ViewModels {
     public class DetailsViewModel : ViewModelBase {
         public DetailsListingViewModel DetailsListingViewModel { get; }
         public DetailsInfoViewModel DetailsInfoViewModel { get; }
+        public DetailsGraphicViewModel DetailsGraphicViewModel { get; }
 
         public ICommand HomeCommand { get; }
 
@@ -29,6 +30,7 @@ namespace Crypto.WPF.ViewModels {
 
             DetailsListingViewModel = new DetailsListingViewModel(markets);
             DetailsInfoViewModel = new DetailsInfoViewModel(_coin);
+            DetailsGraphicViewModel = new DetailsGraphicViewModel(_coin);
 
             HomeCommand = new HomeCommand(navigationStore);
         }
