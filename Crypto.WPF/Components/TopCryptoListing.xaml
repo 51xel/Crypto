@@ -39,7 +39,7 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <TextBlock Text="Empty" Foreground="White" FontSize="20" Opacity="0.5" HorizontalAlignment="Center"/>
+            <TextBlock Text="Empty" Foreground="{DynamicResource BorderDivideBackgroundColor}" FontSize="20" Opacity="0.5" HorizontalAlignment="Center"/>
         </Grid>
         
         <Grid>

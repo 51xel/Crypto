@@ -1,12 +1,8 @@
-﻿using Crypto.WPF.Stores;
-using CryptoLibrary;
+﻿using CryptoLibrary;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Crypto.WPF.ViewModels{
@@ -22,16 +18,7 @@ namespace Crypto.WPF.ViewModels{
             }
             set {
                 _listingItemViewModel = value;
-
-                try {
-                    Process.Start(new ProcessStartInfo {
-                        FileName = "cmd",
-                        Arguments = $"/c start https://coincap.io/exchanges/{_listingItemViewModel.Market.ExchangeId.ToLower()}",
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    });
-                }
-                catch (Exception ex) { }
+                OpenBrowser();
             }
         }
 
@@ -57,6 +44,18 @@ namespace Crypto.WPF.ViewModels{
         public async void UpdateListing(Task<List<Market>> list) {
             var result = await list;
             UpdateListing(result);
+        }
+
+        private void OpenBrowser() {
+            try {
+                Process.Start(new ProcessStartInfo {
+                    FileName = "cmd",
+                    Arguments = $"/c start https://coincap.io/exchanges/{_listingItemViewModel.Market.ExchangeId.ToLower()}",
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                });
+            }
+            catch (Exception ex) { }
         }
     }
 }

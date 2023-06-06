@@ -23,7 +23,7 @@ namespace Crypto.WPF.ViewModels {
             }
         }
 
-        public DetailsViewModel(Coin coin, NavigationStore navigationStore) {
+        public DetailsViewModel(Coin coin, NavigationStore navigationStore, AppThemeStore appThemeStore) {
             _coin = coin;
 
             var markets = TopCryptoCommands.GetMarkets(_coin.Id);
@@ -32,7 +32,7 @@ namespace Crypto.WPF.ViewModels {
             DetailsInfoViewModel = new DetailsInfoViewModel(_coin);
             DetailsGraphicViewModel = new DetailsGraphicViewModel(_coin);
 
-            HomeCommand = new HomeCommand(navigationStore);
+            HomeCommand = new HomeCommand(navigationStore, appThemeStore);
         }
     }
 }

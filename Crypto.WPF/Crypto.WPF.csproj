@@ -9,7 +9,13 @@
 
   <ItemGroup>
     <None Remove="Fonts\Inter.ttf" />
+    <None Remove="Images\Icons\moon.png" />
     <None Remove="Images\Icons\search.png" />
+    <None Remove="Images\Icons\sun.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Themes\Dark.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +28,10 @@
 
   <ItemGroup>
     <Resource Include="Fonts\Inter.ttf" />
+    <Resource Include="Images\Icons\moon.png" />
     <Resource Include="Images\Icons\search.png" />
+    <Resource Include="Images\Icons\sun.png" />
+    <Resource Include="Themes\Dark.xaml" />
   </ItemGroup>
 
 </Project>

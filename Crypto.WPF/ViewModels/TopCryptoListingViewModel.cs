@@ -15,6 +15,7 @@ namespace Crypto.WPF.ViewModels{
 
         private DisplayedCoinsStore _displayedCoinsStore { get; }
         private NavigationStore _navigationStore;
+        private AppThemeStore _appThemeStore;
 
         private TopCryptoListingItemViewModel _topCryptoListingItemViewModel;
         public TopCryptoListingItemViewModel SelectedListingItem {
@@ -24,17 +25,19 @@ namespace Crypto.WPF.ViewModels{
             set {
                _topCryptoListingItemViewModel = value;
 
-                _navigationStore.CurrentViewModel = new DetailsViewModel(_topCryptoListingItemViewModel.Coin, _navigationStore);
+                _navigationStore.CurrentViewModel = new DetailsViewModel(_topCryptoListingItemViewModel.Coin, _navigationStore, _appThemeStore);
             }
         }
 
-        public TopCryptoListingViewModel(DisplayedCoinsStore displayedCoinsStore, NavigationStore navigationStore) {
+        public TopCryptoListingViewModel(DisplayedCoinsStore displayedCoinsStore, NavigationStore navigationStore, AppThemeStore appThemeStore) {
             _listingItemViewModels = new ObservableCollection<TopCryptoListingItemViewModel>();
 
             _displayedCoinsStore = displayedCoinsStore;
             _displayedCoinsStore.DisplayedCoinsStoreChanged += DisplayedCoinsStoreChanged;
 
             _navigationStore = navigationStore;
+            _appThemeStore = appThemeStore;
+
 
             UpdateListing(TopCryptoCommands.GetTopCrypto());
         }

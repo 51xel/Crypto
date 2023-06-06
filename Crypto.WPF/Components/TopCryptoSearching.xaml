@@ -80,12 +80,14 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
-        <TextBox Grid.Column="0" Style="{StaticResource SearchTextBoxStyle}" DataContext="{Binding TopCryptoSearchingTextBoxViewModel}" Text="{Binding Name}"/>
-        <Button Grid.Column="1" Style="{StaticResource SearchButtonStyle}" DataContext="{Binding TopCryptoSearchingButtonViewModel}" Command="{Binding SearchCommand}"/>
-    </Grid>
+    <Border Background="#161B2f" CornerRadius="16" Height="45" Padding="10, 0, 10, 0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Style="{StaticResource SearchTextBoxStyle}" DataContext="{Binding TopCryptoSearchingTextBoxViewModel}" Text="{Binding Name}"/>
+            <Button Grid.Column="1" Style="{StaticResource SearchButtonStyle}" DataContext="{Binding TopCryptoSearchingButtonViewModel}" Command="{Binding SearchCommand}"/>
+        </Grid>
+    </Border>
 </UserControl>
